@@ -729,6 +729,13 @@
       }
     }
   }
+  .hover\:bg-\[\#f9722a\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: #f9722a;
+      }
+    }
+  }
   .hover\:bg-blue-600 {
     &:hover {
       @media (hover: hover) {
@@ -764,6 +771,13 @@
       }
     }
   }
+  .hover\:text-\[\#f9722a\] {
+    &:hover {
+      @media (hover: hover) {
+        color: #f9722a;
+      }
+    }
+  }
   .hover\:text-blue-600 {
     &:hover {
       @media (hover: hover) {
@@ -788,6 +802,11 @@
       border-color: var(--color-gray-900);
     }
   }
+  .focus\:bg-\[\#f9722a\] {
+    &:focus {
+      background-color: #f9722a;
+    }
+  }
   .focus\:bg-blue-600 {
     &:focus {
       background-color: var(--color-blue-600);
@@ -801,6 +820,11 @@
   .focus\:bg-gray-900 {
     &:focus {
       background-color: var(--color-gray-900);
+    }
+  }
+  .focus\:text-\[\#f9722a\] {
+    &:focus {
+      color: #f9722a;
     }
   }
   .focus\:text-blue-600 {
