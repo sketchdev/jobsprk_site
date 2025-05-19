@@ -153,10 +153,7 @@
         </div>
       </div>
 
-      <nav
-        x-show="expanded"
-        x-collapse
-      >
+      <nav x-show="expanded">
         <div class="px-1 py-8">
           <div class="grid gap-y-7">
             <a
@@ -658,23 +655,20 @@
       <div class="mx-auto mt-8 max-w-3xl space-y-4 md:mt-16">
         <!-- faq item 1 -->
         <details
-          x-data="{ open: false }"
-          @toggle="open = $el.open"
           class="border border-gray-200 bg-white shadow-lg transition-all duration-200 open:bg-gray-50 hover:bg-gray-50"
         >
           <summary
             class="flex w-full cursor-pointer items-center justify-between px-4 py-5 text-lg font-semibold text-black sm:p-6"
           >
             <span>How to create an account?</span>
-            <span>
+            <span class="chevron">
+              <!-- down chevron -->
               <svg
-                x-show="!open"
-                class="h-6 w-6 text-gray-400"
+                class="chevron-down h-6 w-6 text-gray-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <!-- down chevron -->
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -682,14 +676,13 @@
                   d="M19 9l-7 7-7-7"
                 />
               </svg>
+              <!-- up chevron -->
               <svg
-                x-show="open"
-                class="h-6 w-6 text-gray-400"
+                class="chevron-up h-6 w-6 text-gray-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <!-- up chevron -->
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -714,18 +707,15 @@
         </details>
         <!-- faq item 2 -->
         <details
-          x-data="{ open: false }"
-          @toggle="open = $el.open"
           class="border border-gray-200 bg-white transition-all duration-200 open:bg-gray-50 hover:bg-gray-50"
         >
           <summary
             class="flex w-full cursor-pointer items-center justify-between px-4 py-5 text-lg font-semibold text-black sm:p-6"
           >
             <span>How can I make payment using Paypal?</span>
-            <span>
+            <span class="chevron">
               <svg
-                x-show="!open"
-                class="h-6 w-6 text-gray-400"
+                class="chevron-down h-6 w-6 text-gray-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -738,8 +728,7 @@
                 />
               </svg>
               <svg
-                x-show="open"
-                class="h-6 w-6 text-gray-400"
+                class="chevron-up h-6 w-6 text-gray-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -768,18 +757,15 @@
         </details>
         <!-- faq item 3 -->
         <details
-          x-data="{ open: false }"
-          @toggle="open = $el.open"
           class="border border-gray-200 bg-white transition-all duration-200 open:bg-gray-50 hover:bg-gray-50"
         >
           <summary
             class="flex w-full cursor-pointer items-center justify-between px-4 py-5 text-lg font-semibold text-black sm:p-6"
           >
             <span>Can I cancel my plan?</span>
-            <span>
+            <span class="chevron">
               <svg
-                x-show="!open"
-                class="h-6 w-6 text-gray-400"
+                class="chevron-down h-6 w-6 text-gray-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -792,8 +778,7 @@
                 />
               </svg>
               <svg
-                x-show="open"
-                class="h-6 w-6 text-gray-400"
+                class="chevron-up h-6 w-6 text-gray-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -822,18 +807,15 @@
         </details>
         <!-- faq item 4 -->
         <details
-          x-data="{ open: false }"
-          @toggle="open = $el.open"
           class="border border-gray-200 bg-white transition-all duration-200 open:bg-gray-50 hover:bg-gray-50"
         >
           <summary
             class="flex w-full cursor-pointer items-center justify-between px-4 py-5 text-lg font-semibold text-black sm:p-6"
           >
             <span>How can I reach to support?</span>
-            <span>
+            <span class="chevron">
               <svg
-                x-show="!open"
-                class="h-6 w-6 text-gray-400"
+                class="chevron-down h-6 w-6 text-gray-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -846,8 +828,7 @@
                 />
               </svg>
               <svg
-                x-show="open"
-                class="h-6 w-6 text-gray-400"
+                class="chevron-up h-6 w-6 text-gray-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -914,16 +895,6 @@
                 title=""
                 class="flex text-base text-black transition-all duration-200 hover:text-[#f9722a] focus:text-[#f9722a]"
               >
-                About
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#"
-                title=""
-                class="flex text-base text-black transition-all duration-200 hover:text-[#f9722a] focus:text-[#f9722a]"
-              >
                 Features
               </a>
             </li>
@@ -956,8 +927,7 @@
           <ul class="mt-6 space-y-4">
             <li>
               <a
-                href="#"
-                title=""
+                href="https://app.jobsprk.com/terms"
                 class="flex text-base text-black transition-all duration-200 hover:text-[#f9722a] focus:text-[#f9722a]"
               >
                 Terms & Conditions
@@ -966,8 +936,7 @@
 
             <li>
               <a
-                href="#"
-                title=""
+                href="https://app.jobsprk.com/privacy"
                 class="flex text-base text-black transition-all duration-200 hover:text-[#f9722a] focus:text-[#f9722a]"
               >
                 Privacy Policy
@@ -1076,4 +1045,16 @@
       </p>
     </div>
   </section>
+
+  <style>
+    .chevron-up {
+      display: none;
+    }
+    details[open] .chevron-down {
+      display: none;
+    }
+    details[open] .chevron-up {
+      display: inline;
+    }
+  </style>
 </div>
