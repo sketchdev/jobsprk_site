@@ -1,0 +1,12 @@
+{
+    "printWidth": 100,
+    "semi": true,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "plugins": ["prettier-plugin-tailwindcss"],
+    "tailwindStylesheet": "/.input.css",
+    "singleAttributePerLine": true,
+    "objectWrap": "collapse",
+    "experimentalOperatorPosition": "start",
+    "tailwindPreserveWhitespace": true
+}

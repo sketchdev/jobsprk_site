@@ -1,0 +1,16 @@
+{
+  "name": "jobsprk_site",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "tailwindcss -i input.css -o index.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.7",
+    "tailwindcss": "^4.1.7"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11"
+  }
+}
