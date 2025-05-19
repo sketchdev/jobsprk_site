@@ -642,6 +642,250 @@
     </div>
   </section>
 
+  <section class="bg-gray-50 py-10 sm:py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
+          Frequently Asked Questions
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl text-base leading-relaxed text-gray-600">
+          Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+        </p>
+      </div>
+
+      <div class="mx-auto mt-8 max-w-3xl space-y-4 md:mt-16">
+        <!-- faq item 1 -->
+        <details
+          x-data="{ open: false }"
+          @toggle="open = $el.open"
+          class="border border-gray-200 bg-white shadow-lg transition-all duration-200 open:bg-gray-50 hover:bg-gray-50"
+        >
+          <summary
+            class="flex w-full cursor-pointer items-center justify-between px-4 py-5 text-lg font-semibold text-black sm:p-6"
+          >
+            <span>How to create an account?</span>
+            <span>
+              <svg
+                x-show="!open"
+                class="h-6 w-6 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <!-- down chevron -->
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              <svg
+                x-show="open"
+                class="h-6 w-6 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <!-- up chevron -->
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 15l7-7 7 7"
+                />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-4 pb-5 sm:px-6 sm:pb-6">
+            <p>
+              Amet minim mollit non deserunt ullamco est sit
+              <a
+                href="#"
+                title=""
+                class="text-blue-600 transition-all duration-200 hover:underline"
+                >aliqua dolor</a
+              >
+              do amet sint. Velit officia consequat duis enim velit mollit.
+            </p>
+          </div>
+        </details>
+        <!-- faq item 2 -->
+        <details
+          x-data="{ open: false }"
+          @toggle="open = $el.open"
+          class="border border-gray-200 bg-white transition-all duration-200 open:bg-gray-50 hover:bg-gray-50"
+        >
+          <summary
+            class="flex w-full cursor-pointer items-center justify-between px-4 py-5 text-lg font-semibold text-black sm:p-6"
+          >
+            <span>How can I make payment using Paypal?</span>
+            <span>
+              <svg
+                x-show="!open"
+                class="h-6 w-6 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              <svg
+                x-show="open"
+                class="h-6 w-6 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 15l7-7 7 7"
+                />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-4 pb-5 sm:px-6 sm:pb-6">
+            <p>
+              Amet minim mollit non deserunt ullamco est sit
+              <a
+                href="#"
+                title=""
+                class="text-blue-600 transition-all duration-200 hover:underline"
+                >aliqua dolor</a
+              >
+              do amet sint. Velit officia consequat duis enim velit mollit.
+            </p>
+          </div>
+        </details>
+        <!-- faq item 3 -->
+        <details
+          x-data="{ open: false }"
+          @toggle="open = $el.open"
+          class="border border-gray-200 bg-white transition-all duration-200 open:bg-gray-50 hover:bg-gray-50"
+        >
+          <summary
+            class="flex w-full cursor-pointer items-center justify-between px-4 py-5 text-lg font-semibold text-black sm:p-6"
+          >
+            <span>Can I cancel my plan?</span>
+            <span>
+              <svg
+                x-show="!open"
+                class="h-6 w-6 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              <svg
+                x-show="open"
+                class="h-6 w-6 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 15l7-7 7 7"
+                />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-4 pb-5 sm:px-6 sm:pb-6">
+            <p>
+              Amet minim mollit non deserunt ullamco est sit
+              <a
+                href="#"
+                title=""
+                class="text-blue-600 transition-all duration-200 hover:underline"
+                >aliqua dolor</a
+              >
+              do amet sint. Velit officia consequat duis enim velit mollit.
+            </p>
+          </div>
+        </details>
+        <!-- faq item 4 -->
+        <details
+          x-data="{ open: false }"
+          @toggle="open = $el.open"
+          class="border border-gray-200 bg-white transition-all duration-200 open:bg-gray-50 hover:bg-gray-50"
+        >
+          <summary
+            class="flex w-full cursor-pointer items-center justify-between px-4 py-5 text-lg font-semibold text-black sm:p-6"
+          >
+            <span>How can I reach to support?</span>
+            <span>
+              <svg
+                x-show="!open"
+                class="h-6 w-6 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              <svg
+                x-show="open"
+                class="h-6 w-6 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 15l7-7 7 7"
+                />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-4 pb-5 sm:px-6 sm:pb-6">
+            <p>
+              Amet minim mollit non deserunt ullamco est sit
+              <a
+                href="#"
+                title=""
+                class="text-blue-600 transition-all duration-200 hover:underline"
+                >aliqua dolor</a
+              >
+              do amet sint. Velit officia consequat duis enim velit mollit.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <p class="textbase mt-9 text-center text-gray-600">
+        Didn’t find the answer you are looking for? Contact us at
+        <a
+          href="#"
+          title=""
+          class="font-medium text-[#f9722a] transition-all duration-200 hover:text-[#f9722a] focus:text-[#f9722a]"
+          >support@jobsprk.com</a
+        >
+      </p>
+    </div>
+  </section>
+
   <section class="bg-gray-50 py-10 sm:pt-16 lg:pt-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 gap-x-12 gap-y-16 md:col-span-3 lg:grid-cols-6">
