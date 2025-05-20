@@ -299,10 +299,18 @@
             class="mx-auto h-24"
           />
           <h3 class="mt-8 text-xl font-bold text-gray-900">Transparent Pricing</h3>
-          <p class="mt-5 text-base text-gray-600">
-            No fine print. No surprises. Just <span x-text="product.price"></span> gets you
-            everything. We hate hidden fees, too.
-          </p>
+          <template x-if="!product || loading || error">
+            <p class="mt-5 text-base text-gray-600">
+              No fine print. No surprises. One payment gets you everything. We hate hidden fees,
+              too.
+            </p>
+          </template>
+          <template x-if="product && !loading && !error">
+            <p class="mt-5 text-base text-gray-600">
+              No fine print. No surprises. Just <span x-text="product.price"></span> gets you
+              everything. We hate hidden fees, too.
+            </p>
+          </template>
         </div>
 
         <div class="md:border-l md:border-gray-200 md:p-8 lg:p-14">
@@ -478,11 +486,21 @@
             </span>
           </summary>
           <div class="px-4 pb-5 sm:px-6 sm:pb-6">
-            <p>
-              Just <span x-text="product.price"></span>. No subscriptions, no sneaky upsells, no
-              “wait, why is this $49 now?” moments. One flat price for a polished, job-ready resume.
-              Worth every penny, and still less than what most people spend on coffee in a week.
-            </p>
+            <template x-if="!product || loading || error">
+              <p>
+                No subscriptions, no sneaky upsells, no “wait, why is this $49 now?” moments. One
+                flat price for a polished, job-ready resume. Worth every penny, and still less than
+                what most people spend on coffee in a week.
+              </p>
+            </template>
+            <template x-if="product && !loading && !error">
+              <p>
+                Just <span x-text="product.price"></span>. No subscriptions, no sneaky upsells, no
+                “wait, why is this $49 now?” moments. One flat price for a polished, job-ready
+                resume. Worth every penny, and still less than what most people spend on coffee in a
+                week.
+              </p>
+            </template>
           </div>
         </details>
         <!-- faq item 2 -->
