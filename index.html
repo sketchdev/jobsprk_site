@@ -606,6 +606,14 @@
   <section
     id="pricing"
     class="bg-white py-16 sm:py-24"
+    x-data="{ product: null, loading: true, error: null }"
+    x-init="fetch('https://app.jobsprk.com/api/product-information')
+      .then(res => res.json())
+      .then(data => { product = { 
+        ...data, 
+        price: new Intl.NumberFormat(navigator.language, { style: 'currency', currency: data.currency, minimumFractionDigits: 2 }).format(data.unit_amount) 
+      }; loading = false; })
+      .catch(e => { error = 'Could not load product info'; loading = false; })"
   >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
@@ -618,22 +626,40 @@
       </div>
       <div class="mx-auto flex max-w-md flex-col items-center text-center">
         <div
-          class="flex w-full flex-col rounded-2xl border border-gray-200 bg-white p-12 px-16 shadow-sm"
+          class="flex w-full flex-col rounded-2xl border border-gray-200 bg-white p-12 px-6 shadow-sm"
         >
-          <h3 class="mb-2 text-3xl font-bold text-gray-900">Standard</h3>
-          <div class="mb-2 text-4xl font-extrabold text-gray-900">$14.99</div>
-          <p class="mb-6 text-base text-gray-600">
-            Best for individuals looking to land their dream job with a professional resume.
-          </p>
-          <a
-            href="#"
-            class="mb-6 inline-flex items-center justify-center rounded-xl border-2 border-gray-900 px-6 py-3 text-base font-bold text-gray-900 transition-all duration-200 hover:bg-gray-900 hover:text-white focus:bg-gray-900 focus:text-white focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
-          >
-            Get Started
-          </a>
-          <div class="mt-auto text-gray-600">
-            <p>No subscription required.</p>
-          </div>
+          <template x-if="loading">
+            <div class="text-gray-400">Loading&hellip;</div>
+          </template>
+          <template x-if="error">
+            <div
+              class="text-red-500"
+              x-text="error"
+            ></div>
+          </template>
+          <template x-if="product && !loading && !error">
+            <div>
+              <h3
+                class="text-2xl font-semibold text-gray-900"
+                x-text="product.name"
+              ></h3>
+              <p
+                class="mt-2 text-base text-gray-600"
+                x-text="product.description"
+              ></p>
+              <div class="mt-6 flex items-center justify-center">
+                <span
+                  class="text-4xl font-bold text-[#f9722a]"
+                  x-text="product.currency + product.price"
+                ></span>
+              </div>
+              <button
+                class="mt-8 w-full rounded-lg bg-[#f9722a] px-6 py-3 text-base font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#ff8c42] focus:outline-none focus:ring-2 focus:ring-[#f9722a] focus:ring-offset-2"
+              >
+                Get Started
+              </button>
+            </div>
+          </template>
         </div>
       </div>
     </div>
