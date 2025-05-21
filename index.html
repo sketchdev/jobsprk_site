@@ -36,6 +36,10 @@
     />
 
     <style>
+      [x-cloak] {
+        display: none !important;
+      }
+
       .chevron-up {
         display: none;
       }
@@ -128,6 +132,7 @@
 
               <span
                 x-show="expanded"
+                x-cloak
                 aria-hidden="true"
               >
                 <svg
@@ -194,7 +199,10 @@
           </div>
         </div>
 
-        <nav x-show="expanded">
+        <nav
+          x-show="expanded"
+          x-cloak
+        >
           <div class="px-1 py-8">
             <div class="grid gap-y-7">
               <a
