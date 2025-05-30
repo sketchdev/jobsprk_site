@@ -49,6 +49,49 @@
       details[open] .chevron-up {
         display: inline;
       }
+
+      /* modal styles */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.75);
+        opacity: 0;
+        transition: opacity 200ms ease-in-out;
+        padding: 1rem;
+      }
+
+      .modal-overlay.show {
+        display: flex;
+        opacity: 1;
+      }
+
+      .modal-overlay.closing {
+        opacity: 0;
+      }
+
+      /* responsive modal content */
+      .modal-content {
+        position: relative;
+        width: 90vw;
+        max-width: calc(90vh * 16 / 9);
+        max-height: 90vh;
+      }
+
+      @media (max-aspect-ratio: 16/9) {
+        .modal-content {
+          width: 90vw;
+        }
+      }
+
+      @media (min-aspect-ratio: 16/9) {
+        .modal-content {
+          width: calc(90vh * 16 / 9);
+        }
+      }
     </style>
 
     <script
@@ -72,6 +115,45 @@
 
     <title>Jobsprk | Ignite Your Career!</title>
   </head>
+
+  <!-- Video Modal -->
+  <div
+    class="modal-overlay"
+    id="videoModal"
+  >
+    <!-- Modal Content -->
+    <div class="modal-content rounded-xl bg-white p-2">
+      <!-- Close Button -->
+      <button
+        class="modal-close absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-gray-900 text-white hover:bg-gray-600"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+
+      <!-- Video Iframe -->
+      <div class="relative aspect-video w-full">
+        <iframe
+          id="videoIframe"
+          src=""
+          class="absolute h-full w-full rounded-lg"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
 
   <div
     class="overflow-x-hidden border-b border-t-8 border-b-gray-200 border-t-[#f9722a] bg-gray-50 p-4"
@@ -278,7 +360,7 @@
 
             <a
               href="#"
-              class="mt-4 inline-flex w-full items-center justify-center rounded-xl border-2 border-gray-400 px-6 py-3 text-lg font-bold text-gray-900 transition-all duration-200 hover:border-gray-900 hover:bg-gray-900 hover:text-white focus:border-gray-900 focus:bg-gray-900 focus:text-white focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 sm:mt-0 sm:w-auto"
+              class="watch-demo-btn mt-4 inline-flex w-full items-center justify-center rounded-xl border-2 border-gray-400 px-6 py-3 text-lg font-bold text-gray-900 transition-all duration-200 hover:border-gray-900 hover:bg-gray-900 hover:text-white focus:border-gray-900 focus:bg-gray-900 focus:text-white focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 sm:mt-0 sm:w-auto"
               role="button"
             >
               <svg
@@ -307,6 +389,23 @@
           <div class="absolute inset-0 h-2/3 bg-gray-50"></div>
           <div class="relative mx-auto">
             <div class="lg:mx-auto lg:max-w-6xl">
+              <!-- Play button overlay -->
+              <div
+                class="hero-play-btn absolute inset-0 z-10 flex cursor-pointer items-center justify-center"
+              >
+                <div
+                  class="flex h-20 w-20 items-center justify-center rounded-full bg-gray-900 bg-opacity-70 text-white transition-transform duration-200 hover:scale-110"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-10 w-10"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
               <img
                 class="scale-90 transform rounded-xl border border-gray-200 shadow-lg ring-1 ring-gray-900/5"
                 src="img/hero.png"
@@ -1442,4 +1541,59 @@
       </div>
     </section>
   </div>
+
+  <!-- modal script -->
+  <script>
+    (function () {
+      const videoUrl =
+        'https://www.youtube.com/embed/vdl3Ximvsvs?autoplay=1&rel=0&modestbranding=1';
+      const modal = document.getElementById('videoModal');
+      const iframe = document.getElementById('videoIframe');
+      const closeBtn = modal.querySelector('.modal-close');
+      const watchDemoBtn = document.querySelector('.watch-demo-btn');
+      const heroPlayBtn = document.querySelector('.hero-play-btn');
+
+      function openModal() {
+        modal.classList.add('show');
+        iframe.src = videoUrl;
+      }
+
+      function closeModal() {
+        modal.classList.add('closing');
+        iframe.src = '';
+
+        setTimeout(() => {
+          modal.classList.remove('show', 'closing');
+        }, 200);
+      }
+
+      // open modal handlers
+      watchDemoBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openModal();
+      });
+
+      heroPlayBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openModal();
+      });
+
+      // close modal handlers
+      closeBtn.addEventListener('click', closeModal);
+
+      // close on background click
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // close on escape key
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+          closeModal();
+        }
+      });
+    })();
+  </script>
 </html>
